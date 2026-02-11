@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Flame, Calendar, Trophy, TrendingUp, Award } from "lucide-react";
+import { X, Flame, Calendar, Trophy, TrendingUp, Award, Zap, Star } from "lucide-react";
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
-import { hof } from "../lib/data";
+import { hof, players } from "../lib/data";
 
 interface Player {
   name: string;
@@ -47,21 +47,32 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
 
   // Dynamic Titles Logic
   const getDynamicTitle = () => {
-    // 1. Legendă Hall of Fame if in HoF
+    // 0. Cea mai bună formă din totdeauna (Peak streak in S6 - 3 wins)
+    if (player.streak === 3) {
+      return { text: "Cea mai bună formă din totdeauna", icon: <Star className="h-4 w-4 text-yellow-500" /> };
+    }
+
+    // 1. Cel mai în formă (Highest current streak in league)
+    const maxStreak = Math.max(...players.map(p => p.streak || 0));
+    if (player.streak && player.streak === maxStreak && maxStreak > 0) {
+      return { text: "Cel mai în formă", icon: <Zap className="h-4 w-4 text-orange-500" /> };
+    }
+
+    // 2. Legendă Hall of Fame if in HoF
     const isInHoF = hof.some(h => h.champion === player.name || h.mvp === player.name);
     if (isInHoF) return { text: "Legendă Hall of Fame", icon: <Trophy className="h-4 w-4" /> };
 
-    // 2. În Formă 🔥 if streak >= 2
+    // 3. În Formă 🔥 if streak >= 2
     if (player.streak && player.streak >= 2) return { text: "În Formă 🔥", icon: <Flame className="h-4 w-4" /> };
 
-    // 3. Rising Star 📈 if S6 > S5
+    // 4. Rising Star 📈 if S6 > S5
     if (player.history && player.history.length >= 6) {
       const s5 = player.history[4];
       const s6 = player.history[5];
       if (s6 > s5) return { text: "Rising Star 📈", icon: <TrendingUp className="h-4 w-4" /> };
     }
 
-    // 4. Veteran Sezonul 1 🎖️ if data exists in S1
+    // 5. Veteran Sezonul 1 🎖️ if data exists in S1
     if (player.history && player.history[0] > 0) return { text: "Veteran Sezonul 1 🎖️", icon: <Award className="h-4 w-4" /> };
 
     return { text: "Competitor Activ", icon: null };
