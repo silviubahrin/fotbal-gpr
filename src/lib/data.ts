@@ -21,7 +21,7 @@ const rawPlayers = [
   { name: "Gabriel Marzan", rating: 4.665, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 100, history: [4.5, 4.3, 4.4, 4.55, 4.6, 4.665] },
   { name: "Florin Ispas", rating: 4.640, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, history: [4.2, 4.35, 4.45, 4.5, 4.58, 4.64] },
   { name: "Burz Radu", rating: 4.555, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, history: [4.1, 4.25, 4.3, 4.42, 4.5, 4.555] },
-  { name: "Silviu Bahrin", rating: 4.335, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 100, history: [3.8, 3.95, 4.1, 4.2, 4.28, 4.335] },
+  { name: "Silviu Bahrin", rating: 4.335, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 100, history: [3.8, 3.95, 4.1, 4.2, 4.28, 4.335] }, // Hardcoded 100% Attendance
   { name: "Paul Epure", rating: 4.255, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, history: [3.9, 4.0, 4.1, 4.15, 4.2, 4.255] },
   { name: "Vlad Vidican", rating: 4.190, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 75, history: [3.7, 3.85, 4.0, 4.05, 4.12, 4.19] },
   { name: "Matei Hasmasan", rating: 4.135, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 13, history: [3.8, 3.9, 4.0, 4.05, 4.1, 4.135] },
