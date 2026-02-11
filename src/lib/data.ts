@@ -15,6 +15,12 @@ export const players = [
   { name: "Adrian Ispas", rating: 3.770, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
   { name: "Andries Adrian", rating: 3.740, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
   { name: "Ovidiu Iancau", rating: 3.700, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
+  { name: "Ionut Moldovan", rating: 4.700, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
+  { name: "Denis Antonie", rating: 3.610, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
+  { name: "Balau George", rating: 3.255, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
+  { name: "Gabi Trofin", rating: 3.150, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
+  { name: "Vasi Trif", rating: 2.867, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
+  { name: "Muresan Cosmin", rating: 2.580, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
   { name: "Alexandru Avirvarei", rating: 3.570, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
   { name: "Zamfirescu Adrian", rating: 3.520, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
   { name: "Hora Catalin", rating: 3.325, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
@@ -30,10 +36,9 @@ export const players = [
 ];
 
 export const matches = [
-  { date: "10.02", score: "5 - 3", winners: ["Andrei", "Cristi", "Radu"], players: 12 },
-  { date: "03.02", score: "4 - 4", winners: ["Draw"], players: 14 },
-  { date: "27.01", score: "6 - 2", winners: ["Marius", "Dan"], players: 10 },
-  { date: "20.01", score: "3 - 5", winners: ["Vlad", "Stefan", "Andrei"], players: 12 },
+  { date: "06.01", score: "0 - 0", winners: ["TBD"], players: 15, playersList: ["Gabriel Marzan", "Burz Radu", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Marius Calin", "Nedisan Vlad", "Ovidiu Moldovan", "Tudor Oprisor", "Ionut Moldovan", "Vasi Trif"] },
+  { date: "20.01", score: "0 - 0", winners: ["TBD"], players: 14, playersList: ["Termure Adrian", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Cimpean Vali", "Dan Sandu", "Alexandru Avirvarei", "Borfina Marius", "Nedisan Vlad", "Mihai Pop", "Ovidiu Moldovan", "Florin Dusa", "Gabi Trofin"] },
+  { date: "10.02", score: "0 - 0", winners: ["TBD"], players: 11, playersList: ["Termure Adrian", "Silviu Bahrin", "Vlad Vidican", "Cimpean Vali", "Dan Sandu", "Andries Adrian", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Nedisan Vlad", "Mihai Pop"] },
 ];
 
 export const trophies = [
