@@ -95,7 +95,7 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
               </div>
 
               <div className="h-48 w-full bg-white/5 rounded-2xl border border-white/5 p-2">
-                <p className="text-[10px] text-gray-500 uppercase font-bold mb-2 ml-2">Ranking History</p>
+                <p className="text-[10px] text-gray-500 uppercase font-bold mb-2 ml-2 tracking-widest">Ranking Evolution</p>
                 <ResponsiveContainer width="100%" height="80%">
                   <LineChart data={evolutionData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#222" vertical={false} />

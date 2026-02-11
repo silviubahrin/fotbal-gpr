@@ -10,7 +10,7 @@ import { Award, Star, History } from "lucide-react";
 export default function Home() {
   const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
 
-  // Force Rebuild - Modal Fixes v2
+  // Force Rebuild - Verified Modal Text Update
   return (
     <main className="min-h-screen bg-[#050505] pb-20 text-white">
       <div className="mx-auto max-w-4xl px-4 pt-8">
