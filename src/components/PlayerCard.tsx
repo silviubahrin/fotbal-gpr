@@ -34,7 +34,7 @@ export default function PlayerCard({ player, index, onClick }: { player: Player,
       onClick={onClick}
       className="group relative cursor-pointer overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-4 transition-all hover:bg-white/10"
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between py-1">
         <div className="flex items-center gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 text-xl font-black italic">
             {player.name[0]}
@@ -77,21 +77,6 @@ export default function PlayerCard({ player, index, onClick }: { player: Player,
           <p className="text-xs uppercase text-gray-500">Win Rate</p>
           <p className="font-mono text-xl font-bold text-green-400">{player.winRate}%</p>
         </div>
-      </div>
-      
-      <div className="mt-4 grid grid-cols-6 gap-1">
-        {[
-          { label: "PAC", val: player.pace },
-          { label: "SHO", val: player.sho },
-          { label: "PAS", val: player.pas },
-          { label: "DRI", val: player.dri },
-          { label: "DEF", val: player.def },
-          { label: "PHY", val: player.phy },
-        ].map((stat) => (
-          <div key={stat.label} className="text-center">
-            <p className="text-sm font-bold text-white">{stat.val}</p>
-          </div>
-        ))}
       </div>
     </motion.div>
   );
