@@ -1,4 +1,21 @@
-export const players = [
+import { getPlayerForm } from './form';
+
+export interface Player {
+  name: string;
+  rating: number;
+  pace: number;
+  sho: number;
+  pas: number;
+  dri: number;
+  def: number;
+  phy: number;
+  attendance: number;
+  winRate: number;
+  form?: ('W' | 'L' | 'D')[];
+  streak?: number;
+}
+
+const rawPlayers = [
   { name: "Termure Adrian", rating: 4.760, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 50 },
   { name: "Gabriel Marzan", rating: 4.665, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 100 },
   { name: "Florin Ispas", rating: 4.640, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
@@ -34,6 +51,11 @@ export const players = [
   { name: "Tudor Oprisor", rating: 2.805, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 25 },
   { name: "Andrei Moldovan", rating: 2.765, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
 ];
+
+export const players: Player[] = rawPlayers.map(p => ({
+  ...p,
+  ...getPlayerForm(p.name)
+}));
 
 export const matches = [
   { date: "06.01", score: "0 - 0", winners: ["TBD"], players: 15, playersList: ["Gabriel Marzan", "Burz Radu", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Marius Calin", "Nedisan Vlad", "Ovidiu Moldovan", "Tudor Oprisor", "Ionut Moldovan", "Vasi Trif"] },

@@ -20,6 +20,8 @@ interface Player {
   phy: number;
   attendance: number;
   winRate: number;
+  form?: ('W' | 'L' | 'D')[];
+  streak?: number;
 }
 
 export default function PlayerCard({ player, index, onClick }: { player: Player, index: number, onClick: () => void }) {
@@ -38,10 +40,32 @@ export default function PlayerCard({ player, index, onClick }: { player: Player,
             {player.name[0]}
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white">{player.name}</h3>
-            <div className="flex items-center gap-1 text-sm text-gray-400">
-              <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
-              <span>{player.rating} Rating</span>
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-bold text-white">{player.name}</h3>
+              {player.streak && player.streak >= 2 && (
+                <span className="flex items-center gap-0.5 text-orange-500 text-xs font-bold animate-pulse">
+                  🔥 {player.streak}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1 text-sm text-gray-400">
+                <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
+                <span>{player.rating} Rating</span>
+              </div>
+              {player.form && player.form.length > 0 && (
+                <div className="flex gap-1">
+                  {player.form.map((res, i) => (
+                    <div 
+                      key={i}
+                      className={cn(
+                        "h-2 w-2 rounded-full",
+                        res === 'W' ? "bg-green-500" : res === 'D' ? "bg-yellow-500" : "bg-red-500"
+                      )}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
