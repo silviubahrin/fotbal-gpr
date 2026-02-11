@@ -1,19 +1,43 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Shield, Zap, Target, Flame } from "lucide-react";
+import { X, Shield, Zap, Target, Flame, Calendar } from "lucide-react";
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts";
 
-export default function PlayerModal({ player, isOpen, onClose }: { player: any, isOpen: boolean, onClose: () => void }) {
+interface Player {
+  name: string;
+  rating: number;
+  pace: number;
+  sho: number;
+  pas: number;
+  dri: number;
+  def: number;
+  phy: number;
+  attendance: number;
+  winRate: number;
+  form?: ('W' | 'L' | 'D')[];
+  streak?: number;
+}
+
+export default function PlayerModal({ player, isOpen, onClose }: { player: Player | null, isOpen: boolean, onClose: () => void }) {
   if (!player) return null;
 
+  // Use rating for stats if they are at default (80) or missing, to fill the chart better
+  const statsMultiplier = 20;
+  const displayPace = player.pace === 80 ? Math.round(player.rating * statsMultiplier) : player.pace;
+  const displaySho = player.sho === 80 ? Math.round(player.rating * statsMultiplier) : player.sho;
+  const displayPas = player.pas === 80 ? Math.round(player.rating * statsMultiplier) : player.pas;
+  const displayDri = player.dri === 80 ? Math.round(player.rating * statsMultiplier) : player.dri;
+  const displayDef = player.def === 80 ? Math.round(player.rating * statsMultiplier) : player.def;
+  const displayPhy = player.phy === 80 ? Math.round(player.rating * statsMultiplier) : player.phy;
+
   const chartData = [
-    { subject: 'PAC', A: player.pace, fullMark: 100 },
-    { subject: 'SHO', A: player.sho, fullMark: 100 },
-    { subject: 'PAS', A: player.pas, fullMark: 100 },
-    { subject: 'DRI', A: player.dri, fullMark: 100 },
-    { subject: 'DEF', A: player.def, fullMark: 100 },
-    { subject: 'PHY', A: player.phy, fullMark: 100 },
+    { subject: 'PAC', A: displayPace, fullMark: 100 },
+    { subject: 'SHO', A: displaySho, fullMark: 100 },
+    { subject: 'PAS', A: displayPas, fullMark: 100 },
+    { subject: 'DRI', A: displayDri, fullMark: 100 },
+    { subject: 'DEF', A: displayDef, fullMark: 100 },
+    { subject: 'PHY', A: displayPhy, fullMark: 100 },
   ];
 
   return (
@@ -46,9 +70,15 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: any, 
                 <p className="text-blue-400 font-bold">ELITE PERFORMER</p>
                 <div className="mt-2 flex gap-4">
                    <div className="flex items-center gap-1 text-sm text-gray-400">
-                    <Flame className="h-4 w-4 text-orange-500" />
+                    <Calendar className="h-4 w-4 text-blue-500" />
                     <span>{player.attendance}% Attendance</span>
                   </div>
+                  {player.streak && player.streak >= 2 && (
+                    <div className="flex items-center gap-1 text-sm text-gray-400">
+                      <Flame className="h-4 w-4 text-orange-500" />
+                      <span>{player.streak} Win Streak</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
