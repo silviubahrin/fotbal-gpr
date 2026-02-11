@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, TrendingUp, Award, Calendar } from "lucide-react";
+import { Star, TrendingUp, Award, Calendar, Trophy } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -20,6 +20,7 @@ interface Player {
   phy: number;
   attendance: number;
   winRate: number;
+  cups?: number;
   form?: ('W' | 'L' | 'D')[];
   streak?: number;
 }
@@ -57,6 +58,12 @@ export default function PlayerCard({ player, index, onClick }: { player: Player,
                 <Calendar className="h-3 w-3 text-blue-400" />
                 <span>{player.attendance}% Att.</span>
               </div>
+              {player.cups !== undefined && player.cups > 0 && (
+                <div className="flex items-center gap-1 text-sm text-yellow-500 font-bold bg-yellow-500/10 px-1.5 py-0.5 rounded-md border border-yellow-500/20 shadow-[0_0_10px_rgba(234,179,8,0.1)]">
+                  <Trophy className="h-3 w-3 fill-yellow-500" />
+                  <span>{player.cups}</span>
+                </div>
+              )}
               {player.form && player.form.length > 0 && (
                 <div className="flex gap-1">
                   {player.form.map((res, i) => (
