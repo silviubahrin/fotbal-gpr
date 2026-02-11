@@ -49,17 +49,17 @@ export default function PlayerCard({
         {/* Left Section: Identity */}
         <div className="flex items-center gap-4">
           <div className="relative">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-xl font-black italic text-white shadow-lg shadow-purple-500/20">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 via-emerald-500 to-pink-500 text-xl font-black italic text-white shadow-lg shadow-emerald-500/20">
               {player.name[0]}
             </div>
             {player.streak && player.streak >= 2 && (
-              <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white ring-2 ring-black">
+              <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white ring-2 ring-black">
                 🔥
               </div>
             )}
           </div>
           <div>
-            <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+            <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
               {player.name}
             </h3>
             <div className="flex items-center gap-2 mt-0.5">
@@ -73,7 +73,7 @@ export default function PlayerCard({
                         res === "W"
                           ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]"
                           : res === "D"
-                          ? "bg-amber-400"
+                          ? "bg-emerald-400"
                           : "bg-rose-500"
                       )}
                     />
@@ -81,7 +81,7 @@ export default function PlayerCard({
                 </div>
               )}
               {player.streak && player.streak >= 2 && (
-                <span className="text-[10px] font-bold uppercase tracking-wider text-orange-400 bg-orange-400/10 px-1.5 py-0.5 rounded">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
                   {player.streak} Streak
                 </span>
               )}
@@ -94,7 +94,7 @@ export default function PlayerCard({
           <StatItem
             label="Rating"
             value={player.rating.toString()}
-            icon={<Star className="h-3 w-3 text-amber-400" />}
+            icon={<Star className="h-3 w-3 text-emerald-400" />}
           />
           <StatItem
             label="Win Rate"
@@ -104,12 +104,12 @@ export default function PlayerCard({
           <StatItem
             label="Attendance"
             value={`${player.attendance}%`}
-            icon={<Calendar className="h-3 w-3 text-indigo-400" />}
+            icon={<Calendar className="h-3 w-3 text-emerald-400" />}
           />
           <StatItem
             label="Trophies"
             value={(player.cups || 0).toString()}
-            icon={<Trophy className="h-3 w-3 text-yellow-500 fill-yellow-500" />}
+            icon={<Trophy className="h-3 w-3 text-emerald-500 fill-emerald-500" />}
           />
         </div>
       </div>

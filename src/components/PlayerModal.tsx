@@ -49,13 +49,13 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
   const getDynamicTitle = () => {
     // 0. Cea mai bună formă din totdeauna (Peak streak in S6 - 3 wins)
     if (player.streak === 3) {
-      return { text: "Cea mai bună formă din totdeauna", icon: <Star className="h-4 w-4 text-yellow-500" /> };
+      return { text: "Cea mai bună formă din totdeauna", icon: <Star className="h-4 w-4 text-emerald-500" /> };
     }
 
     // 1. Cel mai în formă (Highest current streak in league)
     const maxStreak = Math.max(...players.map(p => p.streak || 0));
     if (player.streak && player.streak === maxStreak && maxStreak > 0) {
-      return { text: "Cel mai în formă", icon: <Zap className="h-4 w-4 text-orange-500" /> };
+      return { text: "Cel mai în formă", icon: <Zap className="h-4 w-4 text-emerald-500" /> };
     }
 
     // 2. Legendă Hall of Fame if in HoF
@@ -102,15 +102,15 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
             </button>
 
             <div className="flex items-center gap-6 mb-8">
-               <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-tr from-blue-600 to-purple-600 text-4xl font-black italic shadow-lg shadow-blue-500/20">
+               <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-tr from-emerald-600 to-emerald-600 text-4xl font-black italic shadow-lg shadow-emerald-500/20">
                 {player.name[0]}
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="text-3xl font-black text-white italic">{player.name}</h2>
-                  {player.streak && player.streak >= 3 && <Flame className="h-6 w-6 text-orange-500 animate-pulse" />}
+                  {player.streak && player.streak >= 3 && <Flame className="h-6 w-6 text-emerald-500 animate-pulse" />}
                 </div>
-                <div className="flex items-center gap-1.5 text-blue-400 font-bold uppercase tracking-tight">
+                <div className="flex items-center gap-1.5 text-emerald-400 font-bold uppercase tracking-tight">
                   {titleInfo.icon}
                   <span>{titleInfo.text}</span>
                 </div>
@@ -176,11 +176,11 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
                </div>
                <div className="rounded-2xl bg-white/5 p-4 border border-white/10">
                   <p className="text-xs text-gray-500 uppercase">Attendance</p>
-                  <p className="text-2xl font-black text-blue-400">{player.attendance}%</p>
+                  <p className="text-2xl font-black text-emerald-400">{player.attendance}%</p>
                </div>
                <div className="rounded-2xl bg-white/5 p-4 border border-white/10">
                   <p className="text-xs text-gray-500 uppercase">Current Streak</p>
-                  <p className={`text-2xl font-black ${player.streak && player.streak > 0 ? 'text-orange-500' : 'text-gray-500'}`}>
+                  <p className={`text-2xl font-black ${player.streak && player.streak > 0 ? 'text-emerald-500' : 'text-gray-500'}`}>
                     {player.streak && player.streak > 0 ? `+${player.streak}` : (player.streak || 0)}
                   </p>
                </div>
