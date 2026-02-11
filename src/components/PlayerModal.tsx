@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Flame, Calendar } from "lucide-react";
+import { X, Flame, Calendar, Trophy, TrendingUp, Award } from "lucide-react";
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { hof } from "../lib/data";
 
 interface Player {
   name: string;
@@ -23,11 +24,18 @@ interface Player {
 export default function PlayerModal({ player, isOpen, onClose }: { player: Player | null, isOpen: boolean, onClose: () => void }) {
   if (!player) return null;
 
+  // Radar Chart Calibration logic
+  const normalizedRating = player.rating * 20;
+  // Wins and Attendance are already 0-100
+  // Form: 100 if streak is high (3+ is usually perfect form in this context), or if recent form is all W
+  // Silviu Bahrin has 100% winRate and attendance, and streak 3.
+  const formValue = player.streak ? Math.min(player.streak * 33.4, 100) : 50;
+
   const chartData = [
-    { subject: 'Rating', A: player.rating * 20, fullMark: 100 },
+    { subject: 'Rating', A: normalizedRating, fullMark: 100 },
     { subject: 'Wins', A: player.winRate, fullMark: 100 },
     { subject: 'Attendance', A: player.attendance, fullMark: 100 },
-    { subject: 'Form', A: player.streak ? Math.min(player.streak * 20, 100) : 50, fullMark: 100 },
+    { subject: 'Form', A: formValue, fullMark: 100 },
     { subject: 'GPR', A: 85, fullMark: 100 },
     { subject: 'Consistency', A: 75, fullMark: 100 },
   ];
@@ -36,6 +44,30 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
     name: `S${idx + 1}`,
     rating: val
   })) || [];
+
+  // Dynamic Titles Logic
+  const getDynamicTitle = () => {
+    // 1. Legendă Hall of Fame if in HoF
+    const isInHoF = hof.some(h => h.champion === player.name || h.mvp === player.name);
+    if (isInHoF) return { text: "Legendă Hall of Fame", icon: <Trophy className="h-4 w-4" /> };
+
+    // 2. În Formă 🔥 if streak >= 2
+    if (player.streak && player.streak >= 2) return { text: "În Formă 🔥", icon: <Flame className="h-4 w-4" /> };
+
+    // 3. Rising Star 📈 if S6 > S5
+    if (player.history && player.history.length >= 6) {
+      const s5 = player.history[4];
+      const s6 = player.history[5];
+      if (s6 > s5) return { text: "Rising Star 📈", icon: <TrendingUp className="h-4 w-4" /> };
+    }
+
+    // 4. Veteran Sezonul 1 🎖️ if data exists in S1
+    if (player.history && player.history[0] > 0) return { text: "Veteran Sezonul 1 🎖️", icon: <Award className="h-4 w-4" /> };
+
+    return { text: "Competitor Activ", icon: null };
+  };
+
+  const titleInfo = getDynamicTitle();
 
   return (
     <AnimatePresence>
@@ -67,7 +99,10 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
                   <h2 className="text-3xl font-black text-white italic">{player.name}</h2>
                   {player.streak && player.streak >= 3 && <Flame className="h-6 w-6 text-orange-500 animate-pulse" />}
                 </div>
-                <p className="text-blue-400 font-bold">ELITE PERFORMER</p>
+                <div className="flex items-center gap-1.5 text-blue-400 font-bold uppercase tracking-tight">
+                  {titleInfo.icon}
+                  <span>{titleInfo.text}</span>
+                </div>
                 <div className="mt-2 flex gap-2">
                    {player.form?.map((f, i) => (
                      <span key={i} className={`w-3 h-3 rounded-full ${f === 'W' ? 'bg-green-500' : f === 'L' ? 'bg-red-500' : 'bg-gray-500'}`} title={f} />
