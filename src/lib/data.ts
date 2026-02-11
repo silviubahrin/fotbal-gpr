@@ -91,23 +91,10 @@ export const trophies = [
   { name: "Florin Dusa", cups: 0, rate: "0%", successRate: "0%" },
 ];
 
-export const hallOfFame = [
-  { name: "Alexandru Avirvarei", stars: 5, seasons: ["S1", "S2", "S3", "S4", "S5"] },
-  { name: "Burz Radu", stars: 3, seasons: ["S1", "S2", "S4"] },
-  { name: "Nedisan Vlad", stars: 3, seasons: ["S2", "S3", "S5"] },
-  { name: "Cristian Borlea", stars: 2, seasons: ["S1", "S5"] },
-  { name: "Ovidiu Iancau", stars: 2, seasons: ["S4", "S5"] },
-  { name: "Ovidiu Moldovan", stars: 2, seasons: ["S3", "S5"] },
-  { name: "Zamfirescu Adrian", stars: 2, seasons: ["S1", "S2"] },
-  { name: "Denis Antonie", stars: 2, seasons: ["S2", "S4"] },
-  { name: "Florin Dusa", stars: 2, seasons: ["S2", "S4"] },
-  { name: "Gabriel Marzan", stars: 1, seasons: ["S1"] },
-  { name: "Lazea Sorin", stars: 1, seasons: ["S1"] },
-  { name: "Florin Ispas", stars: 1, seasons: ["S3"] },
-  { name: "Tudor Oprisor", stars: 1, seasons: ["S3"] },
-  { name: "Vali Borlea", stars: 1, seasons: ["S3"] },
-  { name: "Gabi Trofin", stars: 1, seasons: ["S4"] },
-  { name: "Termure Adrian", stars: 1, seasons: ["S5"] },
+export const hof = [
+  { champion: "Termure Adrian", mvp: "Termure Adrian", season: "S6", year: "2026" },
+  { champion: "Gabriel Marzan", mvp: "Gabriel Marzan", season: "S1", year: "2024" },
+  { champion: "Florin Ispas", mvp: "Florin Ispas", season: "S3", year: "2025" },
 ];
 
 export const rankEvolution = [
