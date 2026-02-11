@@ -1,3 +1,5 @@
 {
-  "name": "fotbal-gpr"
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "outputDirectory": ".next"
 }
