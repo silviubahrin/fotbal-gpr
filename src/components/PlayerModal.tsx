@@ -99,8 +99,8 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
                 <ResponsiveContainer width="100%" height="80%">
                   <LineChart data={evolutionData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#222" vertical={false} />
-                    <XAxis dataKey="name" hide />
-                    <YAxis hide domain={['dataMin - 0.2', 'dataMax + 0.2']} />
+                    <XAxis dataKey="name" tick={{ fill: '#666', fontSize: 10 }} />
+                    <YAxis domain={[2, 5]} tick={{ fill: '#666', fontSize: 10 }} width={30} />
                     <Tooltip 
                       contentStyle={{ backgroundColor: '#111', border: '1px solid #333', fontSize: '10px' }}
                       itemStyle={{ color: '#3b82f6' }}
@@ -112,6 +112,7 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
                       strokeWidth={3} 
                       dot={{ fill: '#3b82f6', r: 4 }}
                       activeDot={{ r: 6, fill: '#fff' }}
+                      isAnimationActive={false}
                     />
                   </LineChart>
                 </ResponsiveContainer>
