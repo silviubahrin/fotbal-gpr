@@ -1,12 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Users, Calendar } from "lucide-react";
-import { matches } from "@/lib/data";
+import { Trophy, Calendar } from "lucide-react";
+
+const WINNERS = [
+  "Silviu Bahrin",
+  "Vlad Vidican",
+  "Borfina Marius",
+  "Alexandru Avirvarei",
+  "Cimpean Vali",
+  "Andries Adrian"
+];
 
 export default function Hero() {
-  const lastMatch = matches[0];
-
   return (
     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-purple-700 p-8 text-white shadow-2xl">
       <motion.div
@@ -15,28 +21,31 @@ export default function Hero() {
         transition={{ duration: 0.5 }}
       >
         <h1 className="mb-2 text-4xl font-black italic tracking-tighter">FOTBAL GPR</h1>
-        <p className="mb-8 text-blue-100">The Ultimate Group Performance Rankings</p>
+        <p className="mb-8 text-blue-100">Câștigătorii Etapei (10.02)</p>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-md">
+        <div className="grid grid-cols-1 gap-6">
+          <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-md w-fit">
             <Calendar className="h-6 w-6 text-blue-300" />
             <div>
-              <p className="text-xs uppercase tracking-wider text-blue-200">Last Match</p>
-              <p className="font-bold">{lastMatch.date}</p>
+              <p className="text-xs uppercase tracking-wider text-blue-200">Data Etapei</p>
+              <p className="font-bold">10.02.2025</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-md">
-            <Trophy className="h-6 w-6 text-yellow-400" />
-            <div>
-              <p className="text-xs uppercase tracking-wider text-blue-200">Result</p>
-              <p className="font-bold">{lastMatch.score}</p>
+
+          <div>
+            <div className="mb-4 flex items-center gap-2">
+              <Trophy className="h-5 w-5 text-yellow-400" />
+              <h2 className="text-lg font-bold uppercase tracking-wider text-blue-100">Campionii</h2>
             </div>
-          </div>
-          <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-md">
-            <Users className="h-6 w-6 text-green-400" />
-            <div>
-              <p className="text-xs uppercase tracking-wider text-blue-200">Players</p>
-              <p className="font-bold">{lastMatch.players} participants</p>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {WINNERS.map((name) => (
+                <div 
+                  key={name}
+                  className="rounded-xl bg-white/5 p-3 backdrop-blur-sm border border-white/10 shadow-lg"
+                >
+                  <p className="text-sm font-semibold text-white/90">{name}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
