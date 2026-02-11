@@ -13,7 +13,7 @@ export default function Home() {
   // Force Rebuild - [Wed 2026-02-11 21:35 UTC] - Strict Modal Fix
   return (
     <main>
-<div className="bg-emerald-500 text-black text-center text-xs font-bold py-1">BUILD v1.2.0 - NEON GREEN VERIFIED</div> className="min-h-screen bg-[#050505] pb-20 text-white">
+<div className="bg-emerald-600 text-black text-center text-xs font-bold py-1">BUILD v1.2.0 - NEON GREEN VERIFIED</div> className="min-h-screen bg-[#050505] text-white">
       <div className="mx-auto max-w-4xl px-4 pt-8">
         <Hero />
 
@@ -71,7 +71,7 @@ export default function Home() {
               {trophies.map((t, i) => (
                 <div key={i} className="mb-4 flex items-center justify-between border-b border-white/5 pb-4 last:mb-0 last:border-0 last:pb-0">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-500">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600/20 text-emerald-500">
                       <Award className="h-4 w-4" />
                     </div>
                     <p className="font-bold">{t.name}</p>
