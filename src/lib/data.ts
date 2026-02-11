@@ -42,10 +42,27 @@ export const matches = [
 ];
 
 export const trophies = [
-  { name: "Andrei", cups: 12, rate: "85%" },
-  { name: "Marius", cups: 10, rate: "78%" },
-  { name: "Cristi", cups: 9, rate: "72%" },
-  { name: "Dan", cups: 8, rate: "68%" },
+  { name: "Silviu Bahrin", cups: 3, rate: "100%" },
+  { name: "Vlad Vidican", cups: 2.25, rate: "75%" },
+  { name: "Borfina Marius", cups: 2.25, rate: "75%" },
+  { name: "Ovidiu Moldovan", cups: 2, rate: "100%" },
+  { name: "Alexandru Avirvarei", cups: 1.75, rate: "58%" },
+  { name: "Zamfirescu Adrian", cups: 1.5, rate: "75%" },
+  { name: "Cimpean Vali", cups: 1.5, rate: "75%" },
+  { name: "Nedisan Vlad", cups: 1.25, rate: "42%" },
+  { name: "Gabriel Marzan", cups: 1, rate: "100%" },
+  { name: "Vasi Trif", cups: 1, rate: "100%" },
+  { name: "Gabi Trofin", cups: 1, rate: "100%" },
+  { name: "Andries Adrian", cups: 1, rate: "100%" },
+  { name: "Paul Epure", cups: 1, rate: "50%" },
+  { name: "Termure Adrian", cups: 1, rate: "50%" },
+  { name: "Mihai Pop", cups: 1, rate: "50%" },
+  { name: "Dan Sandu", cups: 0.5, rate: "25%" },
+  { name: "Burz Radu", cups: 0.25, rate: "25%" },
+  { name: "Marius Calin", cups: 0.25, rate: "25%" },
+  { name: "Tudor Oprisor", cups: 0.25, rate: "25%" },
+  { name: "Ionut Moldovan", cups: 0.25, rate: "25%" },
+  { name: "Matei Hasmasan", cups: 0.25, rate: "13%" },
 ];
 
 export const hof = [
