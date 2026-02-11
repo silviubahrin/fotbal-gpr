@@ -89,7 +89,6 @@ export default function PlayerCard({ player, index, onClick }: { player: Player,
           { label: "PHY", val: player.phy },
         ].map((stat) => (
           <div key={stat.label} className="text-center">
-            <p className="text-[10px] text-gray-500">{stat.label}</p>
             <p className="text-sm font-bold text-white">{stat.val}</p>
           </div>
         ))}
