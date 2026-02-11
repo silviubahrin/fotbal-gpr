@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, TrendingUp, Award } from "lucide-react";
+import { Star, TrendingUp, Award, Calendar } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -52,6 +52,10 @@ export default function PlayerCard({ player, index, onClick }: { player: Player,
               <div className="flex items-center gap-1 text-sm text-gray-400">
                 <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
                 <span>{player.rating} Rating</span>
+              </div>
+              <div className="flex items-center gap-1 text-sm text-gray-400">
+                <Calendar className="h-3 w-3 text-blue-400" />
+                <span>{player.attendance}% Att.</span>
               </div>
               {player.form && player.form.length > 0 && (
                 <div className="flex gap-1">
