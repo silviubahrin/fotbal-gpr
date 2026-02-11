@@ -52,10 +52,16 @@ const rawPlayers = [
   { name: "Andrei Moldovan", rating: 2.765, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0 },
 ];
 
-export const players: Player[] = rawPlayers.map(p => ({
-  ...p,
-  ...getPlayerForm(p.name)
-}));
+export const players: Player[] = rawPlayers.map(p => {
+  const playerMatchesCount = matches.filter(m => m.playersList.includes(p.name)).length;
+  const attendance = Math.round((playerMatchesCount / matches.length) * 100);
+  
+  return {
+    ...p,
+    attendance,
+    ...getPlayerForm(p.name)
+  };
+});
 
 export const matches = [
   { date: "06.01", score: "0 - 0", winners: ["TBD"], players: 15, playersList: ["Gabriel Marzan", "Burz Radu", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Marius Calin", "Nedisan Vlad", "Ovidiu Moldovan", "Tudor Oprisor", "Ionut Moldovan", "Vasi Trif"] },
