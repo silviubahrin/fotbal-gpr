@@ -57,6 +57,11 @@ export const players: Player[] = rawPlayers.map(p => {
   const playerMatchesCount = matches.filter(m => m.playersList.includes(p.name)).length;
   const attendance = Math.round((playerMatchesCount / matches.length) * 100);
   
+  // LOGGING FOR VERIFICATION
+  if (p.name === "Silviu Bahrin") {
+    console.log(`Debug: Silviu Bahrin attendance calculated as ${attendance}% (${playerMatchesCount}/${matches.length})`);
+  }
+
   return {
     ...p,
     attendance,
