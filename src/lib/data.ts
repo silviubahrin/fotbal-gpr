@@ -40,7 +40,6 @@ export const players: Player[] = [
   { name: "Termure Adrian", rating: 4.76, pace: 85, sho: 80, pas: 85, dri: 82, def: 88, phy: 84, attendance: 90, winRate: 75 },
   { name: "Gabriel Marzan", rating: 4.665, pace: 88, sho: 84, pas: 82, dri: 86, def: 80, phy: 82, attendance: 95, winRate: 70 },
   { name: "Florin Ispas", rating: 4.64, pace: 82, sho: 88, pas: 80, dri: 84, def: 82, phy: 86, attendance: 85, winRate: 65 },
-  { name: "Marius Padure", rating: 4.63, pace: 80, sho: 82, pas: 88, dri: 85, def: 84, phy: 82, attendance: 92, winRate: 68 },
   { name: "Silviu Bahrin", rating: 4.56, pace: 84, sho: 78, pas: 90, dri: 82, def: 75, phy: 78, attendance: 100, winRate: 85 },
   { name: "Alexandru Avirvarei", rating: 4.54, pace: 86, sho: 85, pas: 78, dri: 88, def: 72, phy: 80, attendance: 88, winRate: 72 },
   { name: "Razvan Bucur", rating: 4.51, pace: 78, sho: 75, pas: 84, dri: 80, def: 85, phy: 90, attendance: 82, winRate: 60 },
@@ -51,8 +50,7 @@ export const players: Player[] = [
 
 export const matches: Match[] = [
   { date: "10.02", score: "5 - 3", winners: ["Termure Adrian", "Silviu Bahrin", "Gabriel Marzan"], players: 12 },
-  { date: "20.01", score: "4 - 4", winners: ["Draw"], players: 14 },
-  { date: "06.01", score: "6 - 2", winners: ["Florin Ispas", "Marius Padure"], players: 10 }
+  { date: "20.01", score: "4 - 4", winners: ["Draw"], players: 14 }
 ];
 
 export const trophies: Trophy[] = [
