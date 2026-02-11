@@ -64,6 +64,7 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: any, 
                     stroke="#3b82f6"
                     fill="#3b82f6"
                     fillOpacity={0.6}
+                    isAnimationActive={false}
                   />
                 </RadarChart>
               </ResponsiveContainer>
