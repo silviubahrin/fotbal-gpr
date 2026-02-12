@@ -28,19 +28,19 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
           {winners.map((winner, index) => (
             <motion.div
               key={winner}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group justify-center sm:justify-start"
             >
-              <div className="h-5 w-5 rounded bg-emerald-500 flex items-center justify-center text-[10px] font-black text-black group-hover:shadow-[0_0_12px_rgba(74,222,128,0.4)] transition-all">
+              <div className="flex-shrink-0 h-5 w-5 rounded bg-emerald-500 flex items-center justify-center text-[10px] font-black text-black group-hover:shadow-[0_0_12px_rgba(74,222,128,0.4)] transition-all">
                 {winner.split(' ').map(n => n[0]).join('')}
               </div>
-              <span className="text-sm font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight truncate">{winner}</span>
+              <span className="text-[10px] sm:text-xs font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight truncate">{winner}</span>
             </motion.div>
           ))}
         </div>
