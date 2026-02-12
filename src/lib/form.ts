@@ -42,8 +42,9 @@ export function getPlayerForm(playerName: string) {
     const score = results[date];
     if (score === undefined) return null;
     if (score === 1) return 'W';
-    if (score >= 0.5) return 'D';
-    return 'L';
+    if (score > 0 && score < 1) return 'D';
+    if (score === 0) return 'L';
+    return null; // Should not happen with current data
   }).filter(x => x !== null) as ('W' | 'L' | 'D')[];
 
   // Calculate streak (consecutive Ws from end)

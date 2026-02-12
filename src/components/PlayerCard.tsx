@@ -80,7 +80,7 @@ export default function PlayerCard({
                         res === "W"
                           ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
                           : res === "D"
-                          ? "bg-neutral-600"
+                          ? "bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.4)]"
                           : "bg-rose-500/80"
                       )}
                     />

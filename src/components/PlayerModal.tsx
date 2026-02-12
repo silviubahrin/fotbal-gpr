@@ -116,7 +116,15 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
                 </div>
                 <div className="mt-2 flex gap-2">
                    {player.form?.map((f, i) => (
-                     <span key={i} className={`w-3 h-3 rounded-full ${f === 'W' ? 'bg-green-500' : f === 'L' ? 'bg-transparent' : 'bg-gray-500'}`} title={f} />
+                     <span 
+                       key={i} 
+                       className={`w-3 h-3 rounded-full ${
+                         f === 'W' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]' : 
+                         f === 'D' ? 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.4)]' : 
+                         'bg-rose-500/80'
+                       }`} 
+                       title={f} 
+                     />
                    ))}
                 </div>
               </div>
