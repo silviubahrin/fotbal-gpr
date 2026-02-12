@@ -35,7 +35,7 @@ export default function PlayerCard({
   index: number;
   onClick: () => void;
 }) {
-  const isTopTier = index < 3;
+  const isTopTier = index < 6;
 
   return (
     <motion.div
