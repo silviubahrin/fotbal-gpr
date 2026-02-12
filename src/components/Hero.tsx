@@ -56,12 +56,12 @@ export default function Hero() {
                         <div
                           key={i}
                           className={cn(
-                            "h-1 w-1 rounded-full shrink-0",
+                            "h-1.5 w-1.5 rounded-full shrink-0",
                             res === "W"
                               ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
                               : res === "D"
-                              ? "bg-neutral-600"
-                              : "bg-rose-500/80"
+                              ? "bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.4)]"
+                              : "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.4)]"
                           )}
                         />
                       ))}

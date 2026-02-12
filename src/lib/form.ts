@@ -25,28 +25,19 @@ export const playerMatchResults: Record<string, Record<string, number>> = {
 };
 
 export function getPlayerForm(playerName: string) {
-  // Use a simple local import to avoid circular dependency if data.ts is not yet ready
-  // However, matches is imported at the top, which might cause issues if data.ts imports getPlayerForm
-  // To be safe, we'll use a dynamic-like check or just rely on the existing import which worked before.
   const results = playerMatchResults[playerName] || {};
-  
-  // We need the matches date to map results correctly. 
-  // Since we can't easily avoid the circular import if we import matches here and data.ts imports us,
-  // we'll define the match dates locally for form calculation to break the cycle if needed,
-  // but the existing code used 'matches' from './data'.
-  
   const matchDates = ["06.01", "20.01", "10.02"];
 
+  // Logic: 1.0 = W (Green), 0.1-0.9 = D (Yellow/Gray in UI, but we'll use 'D' for now), 0 = L (Red)
   const form: ('W' | 'L' | 'D')[] = matchDates.map(date => {
     const score = results[date];
     if (score === undefined) return null;
-    if (score === 1) return 'W';
+    if (score >= 1) return 'W';
     if (score > 0 && score < 1) return 'D';
     if (score === 0) return 'L';
-    return null; // Should not happen with current data
+    return null;
   }).filter(x => x !== null) as ('W' | 'L' | 'D')[];
 
-  // Calculate streak (consecutive Ws from end)
   let streak = 0;
   for (let i = form.length - 1; i >= 0; i--) {
     if (form[i] === 'W') {
@@ -57,7 +48,7 @@ export function getPlayerForm(playerName: string) {
   }
 
   return {
-    form, // Return full history
+    form,
     streak
   };
 }
