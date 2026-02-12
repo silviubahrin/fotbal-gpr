@@ -9,52 +9,53 @@ export default function Hero() {
   const winners = lastMatch.winners;
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-neutral-900/50 p-8 text-white shadow-2xl border border-neutral-800 backdrop-blur-xl">
+    <div className="relative overflow-hidden rounded-2xl bg-white/[0.03] p-6 text-white shadow-2xl border border-white/10 backdrop-blur-xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="relative z-10"
       >
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div>
-            <h1 className="text-4xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">
-              Câștigătorii Etapei - {lastMatch.date}
-            </h1>
-            <p className="text-neutral-400 font-medium uppercase tracking-widest text-sm mt-1">Group Performance Rankings</p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 shadow-[0_0_15px_rgba(74,222,128,0.1)]">
+              <Trophy className="h-5 w-5 text-emerald-400" />
+            </div>
+            <div>
+              <h1 className="text-xl font-black tracking-tight text-white uppercase italic">
+                Câștigătorii Etapei
+              </h1>
+              <p className="text-emerald-400/80 font-mono text-[10px] font-bold uppercase tracking-[0.2em]">{lastMatch.date} • Match Day Winners</p>
+            </div>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-            < Trophy className="h-5 w-5 text-emerald-500" />
-            <span className="text-emerald-500 font-bold">MATCH DAY WINNERS</span>
+          <div className="hidden sm:block">
+            <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-400 uppercase tracking-widest">
+              Build v1.4.0
+            </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="flex flex-wrap gap-2">
           {winners.map((winner, index) => (
             <motion.div
               key={winner}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative"
+              transition={{ delay: index * 0.05 }}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-emerald-700 rounded-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
-              <div className="relative flex items-center justify-between gap-3 rounded-xl bg-black/40 p-4 border border-white/5 backdrop-blur-sm group-hover:border-emerald-500/30 transition-all">
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-black font-bold text-xs shadow-lg shadow-emerald-500/20">
-                    {winner.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <span className="font-bold text-neutral-200 group-hover:text-emerald-400 transition-colors">{winner}</span>
-                </div>
+              <div className="h-5 w-5 rounded bg-emerald-500 flex items-center justify-center text-[10px] font-black text-black group-hover:shadow-[0_0_12px_rgba(74,222,128,0.4)] transition-all">
+                {winner.split(' ').map(n => n[0]).join('')}
               </div>
+              <span className="text-sm font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight">{winner}</span>
             </motion.div>
           ))}
         </div>
       </motion.div>
       
-      {/* Decorative background elements */}
-      <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl opacity-50" />
-      <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl opacity-30" />
+      {/* Subtle neon glow */}
+      <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-[100px] pointer-events-none" />
+      <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-[100px] pointer-events-none" />
     </div>
   );
 }

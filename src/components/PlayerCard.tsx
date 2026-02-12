@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, TrendingUp, Award, Calendar, Trophy } from "lucide-react";
+import { Star, Calendar, Trophy } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -40,49 +40,44 @@ export default function PlayerCard({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
-      whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
-      whileTap={{ scale: 0.99 }}
+      whileHover={{ scale: 1.005, backgroundColor: "rgba(255, 255, 255, 0.02)" }}
+      whileTap={{ scale: 0.995 }}
       onClick={onClick}
-      className="group relative cursor-pointer overflow-hidden rounded-xl bg-white/[0.03] border border-white/10 p-5 transition-all"
+      className="group relative cursor-pointer overflow-hidden rounded-xl bg-white/[0.02] border border-white/5 p-4 transition-all hover:border-emerald-500/20 backdrop-blur-sm"
     >
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         {/* Left Section: Identity */}
         <div className="flex items-center gap-4">
           <div className="relative">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 via-emerald-500 to-pink-500 text-xl font-black italic text-white shadow-lg shadow-emerald-500/20">
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-lg font-black italic text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-all shadow-[0_0_10px_rgba(74,222,128,0.1)]">
               {player.name[0]}
             </div>
-            {player.streak && player.streak >= 2 && (
-              <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white ring-2 ring-black">
-                🔥
-              </div>
-            )}
           </div>
           <div>
-            <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
+            <h3 className="text-base font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors leading-none uppercase italic">
               {player.name}
             </h3>
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex items-center gap-2 mt-2">
               {player.form && player.form.length > 0 && (
-                <div className="flex gap-1.5 items-center bg-white/5 px-2 py-1 rounded-full border border-white/5">
+                <div className="flex gap-1 items-center">
                   {player.form.slice(-5).map((res, i) => (
                     <div
                       key={i}
                       className={cn(
                         "h-1.5 w-1.5 rounded-full",
                         res === "W"
-                          ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]"
+                          ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
                           : res === "D"
-                          ? "bg-emerald-400"
-                          : "bg-rose-500"
+                          ? "bg-neutral-600"
+                          : "bg-rose-500/80"
                       )}
                     />
                   ))}
                 </div>
               )}
               {player.streak && player.streak >= 2 && (
-                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
-                  {player.streak} Streak
+                <span className="text-[9px] font-black uppercase tracking-tighter text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                  {player.streak} STREAK
                 </span>
               )}
             </div>
@@ -90,26 +85,26 @@ export default function PlayerCard({
         </div>
 
         {/* Right Section: Stats Grid */}
-        <div className="grid grid-cols-4 gap-4 sm:gap-8 border-t border-white/5 pt-4 sm:pt-0 sm:border-t-0">
+        <div className="grid grid-cols-4 gap-6 sm:gap-8 border-t border-white/5 pt-3 sm:pt-0 sm:border-t-0">
           <StatItem
-            label="Rating"
-            value={player.rating.toString()}
-            icon={<Star className="h-3 w-3 text-emerald-400" />}
+            label="RTG"
+            value={player.rating.toFixed(2)}
+            icon={<Star className="h-2.5 w-2.5 text-emerald-400 fill-emerald-400/20" />}
           />
           <StatItem
-            label="Win Rate"
+            label="WIN%"
             value={`${player.winRate}%`}
             valueColor="text-emerald-400"
           />
           <StatItem
-            label="Attendance"
+            label="ATT"
             value={`${player.attendance}%`}
-            icon={<Calendar className="h-3 w-3 text-emerald-400" />}
+            icon={<Calendar className="h-2.5 w-2.5 text-neutral-500" />}
           />
           <StatItem
-            label="Trophies"
+            label="CUPS"
             value={(player.cups || 0).toString()}
-            icon={<Trophy className="h-3 w-3 text-emerald-500 fill-emerald-500" />}
+            icon={<Trophy className="h-2.5 w-2.5 text-emerald-400" />}
           />
         </div>
       </div>
@@ -130,12 +125,12 @@ function StatItem({
 }) {
   return (
     <div className="flex flex-col items-center sm:items-end justify-center">
-      <span className="text-[10px] font-medium uppercase tracking-widest text-gray-500 mb-1">
+      <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-500 mb-1">
         {label}
       </span>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1">
         {icon}
-        <span className={cn("font-mono text-sm font-bold tracking-tight", valueColor)}>
+        <span className={cn("font-mono text-xs font-bold tracking-tight", valueColor)}>
           {value}
         </span>
       </div>
