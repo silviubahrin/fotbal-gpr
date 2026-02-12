@@ -150,6 +150,7 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
                     <Tooltip 
                       contentStyle={{ backgroundColor: '#111', border: '1px solid #333', fontSize: '10px' }}
                       itemStyle={{ color: '#3b82f6' }}
+                      formatter={(value: number) => [value.toFixed(3), 'Rating']}
                     />
                     <Line 
                       type="monotone" 
@@ -168,7 +169,7 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
             <div className="grid grid-cols-2 gap-4">
                <div className="rounded-2xl bg-white/5 p-4 border border-white/10">
                   <p className="text-xs text-gray-500 uppercase">Season Rating</p>
-                  <p className="text-2xl font-black text-white">{player.rating}</p>
+                  <p className="text-2xl font-black text-white">{player.rating.toFixed(3)}</p>
                </div>
                <div className="rounded-2xl bg-white/5 p-4 border border-white/10">
                   <p className="text-xs text-gray-500 uppercase">Win Rate</p>
