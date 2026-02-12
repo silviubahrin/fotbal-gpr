@@ -7,7 +7,23 @@ import { trophies } from "@/lib/data";
 
 const TrophyRoom = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 6;
+  const [itemsPerView, setItemsPerView] = useState(6);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(2);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(3);
+      } else {
+        setItemsPerView(6);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   
   // Sort trophies by cup count (highest to lowest)
   const sortedTrophies = [...trophies].sort((a, b) => b.cups - a.cups);
@@ -56,7 +72,7 @@ const TrophyRoom = () => {
 
       <div className="relative overflow-hidden px-1">
         <motion.div
-          className="flex gap-3"
+          className="flex gap-3 sm:gap-4"
           animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
           transition={{ type: "spring", stiffness: 300, damping: 40 }}
           style={{ width: `${(totalItems / itemsPerView) * 100}%` }}
@@ -65,37 +81,37 @@ const TrophyRoom = () => {
             <div
               key={t.name}
               style={{ width: `${100 / totalItems}%` }}
-              className={`group relative rounded-xl bg-white/[0.03] p-2.5 border transition-all duration-300 ${
+              className={`group relative rounded-xl bg-white/[0.03] p-3 sm:p-4 border transition-all duration-300 ${
                 i < 6 
                   ? "border-emerald-500/30 bg-emerald-500/[0.02] shadow-[0_0_20px_rgba(16,185,129,0.05)]" 
                   : "border-white/10 hover:border-emerald-500/20"
               }`}
             >
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                  <div className={`h-7 w-7 rounded-lg flex items-center justify-center ${
+                  <div className={`h-8 w-8 sm:h-10 sm:w-10 rounded-lg flex items-center justify-center ${
                     i < 6 ? "bg-emerald-500/20 border border-emerald-500/30" : "bg-white/5 border border-white/10"
                   }`}>
-                    <Trophy className={`h-3.5 w-3.5 ${i < 6 ? "text-emerald-400" : "text-neutral-500"}`} />
+                    <Trophy className={`h-4 w-4 sm:h-5 sm:w-5 ${i < 6 ? "text-emerald-400" : "text-neutral-500"}`} />
                   </div>
                   <div className="flex flex-col items-end">
-                    <span className="font-mono text-base font-black text-emerald-400 leading-none">{t.cups}</span>
-                    <span className="text-[6px] font-bold text-neutral-500 uppercase tracking-tighter">Cups</span>
+                    <span className="font-mono text-lg sm:text-2xl font-black text-emerald-400 leading-none">{t.cups}</span>
+                    <span className="text-[8px] sm:text-[10px] font-bold text-neutral-500 uppercase tracking-tighter">Cups</span>
                   </div>
                 </div>
                 
-                <div className="mt-0.5">
-                  <h3 className="text-[11px] font-black uppercase tracking-tight text-white line-clamp-1 group-hover:text-emerald-400 transition-colors">
+                <div className="mt-1">
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-tight text-white line-clamp-1 group-hover:text-emerald-400 transition-colors">
                     {t.name}
                   </h3>
-                  <div className="mt-1 flex items-center gap-1">
-                    <div className="h-0.5 flex-1 rounded-full bg-white/5 overflow-hidden">
+                  <div className="mt-2 flex items-center gap-2">
+                    <div className="h-1 flex-1 rounded-full bg-white/5 overflow-hidden">
                       <div 
                         className="h-full bg-emerald-500/50" 
                         style={{ width: t.rate }}
                       />
                     </div>
-                    <span className="font-mono text-[7px] font-bold text-neutral-500">{t.rate}</span>
+                    <span className="font-mono text-[8px] sm:text-[10px] font-bold text-neutral-500">{t.rate}</span>
                   </div>
                 </div>
               </div>
