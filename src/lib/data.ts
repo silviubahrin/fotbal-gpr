@@ -18,42 +18,44 @@ export interface Player {
 }
 
 const rawPlayers = [
-  { name: "Termure Adrian", rating: 4.760, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, cups: 1, history: [4.9, 4.84, 4.64, 4.63, 4.53, 4.760] },
+  { name: "Termure Adrian", rating: 4.760, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, cups: 0, history: [4.9, 4.84, 4.64, 4.63, 4.53, 4.760] },
   { name: "Gabriel Marzan", rating: 4.665, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 100, cups: 1, history: [4.53, 4.73, 4.64, 4.63, 4.635, 4.665] },
   { name: "Florin Ispas", rating: 4.640, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [4.63, 4.66, 4.56, 4.65, 4.725, 4.640] },
-  { name: "Burz Radu", rating: 4.555, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, cups: 0.25, history: [4.85, 4.84, 4.68, 4.56, 4.565, 4.555] },
+  { name: "Burz Radu", rating: 4.555, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, cups: 0, history: [4.85, 4.84, 4.68, 4.56, 4.565, 4.555] },
   { name: "Silviu Bahrin", rating: 4.335, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 100, cups: 3, history: [0, 0, 0, 3.96, 4.06, 4.335] },
-  { name: "Paul Epure", rating: 4.255, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, cups: 1, history: [0, 0, 3.72, 4.08, 4.29, 4.255] },
-  { name: "Vlad Vidican", rating: 4.190, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 75, cups: 2.25, history: [0, 0, 0, 3.65, 3.786, 4.190] },
-  { name: "Matei Hasmasan", rating: 4.135, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 13, cups: 0.25, history: [0, 0, 3.61, 3.75, 4.04, 4.135] },
-  { name: "Cimpean Vali", rating: 3.985, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 75, cups: 1.5, history: [0, 0, 0, 0, 3.7, 3.985] },
+  { name: "Paul Epure", rating: 4.255, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, cups: 0, history: [0, 0, 3.72, 4.08, 4.29, 4.255] },
+  { name: "Vlad Vidican", rating: 4.190, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 75, cups: 1, history: [0, 0, 0, 3.65, 3.786, 4.190] },
+  { name: "Matei Hasmasan", rating: 4.135, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 13, cups: 0, history: [0, 0, 3.61, 3.75, 4.04, 4.135] },
+  { name: "Cimpean Vali", rating: 3.985, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 75, cups: 1, history: [0, 0, 0, 0, 3.7, 3.985] },
   { name: "Vali Borlea", rating: 3.905, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [0, 0, 4.08, 0, 3.73, 3.905] },
   { name: "Codrin Aghirasimoaei", rating: 3.850, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [0, 4.4, 4.22, 4.08, 0, 3.850] },
-  { name: "Dan Sandu", rating: 3.785, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 25, cups: 0.5, history: [3.9, 3.84, 3.72, 3.75, 3.7, 3.785] },
+  { name: "Dan Sandu", rating: 3.785, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 25, cups: 0, history: [3.9, 3.84, 3.72, 3.75, 3.7, 3.785] },
   { name: "Cristian Borlea", rating: 3.780, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [4.4, 4.15, 3.92, 3.9, 4.0, 3.780] },
   { name: "Adrian Ispas", rating: 3.770, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [0, 0, 4.08, 3.9, 3.85, 3.770] },
   { name: "Andries Adrian", rating: 3.740, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 100, cups: 1, history: [0, 0, 0, 0, 3.65, 3.740] },
   { name: "Ovidiu Iancau", rating: 3.700, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [0, 0, 0, 3.8, 3.8, 3.700] },
-  { name: "Alexandru Avirvarei", rating: 3.570, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 58, cups: 1.75, history: [4.05, 3.72, 3.64, 3.62, 3.55, 3.570] },
-  { name: "Zamfirescu Adrian", rating: 3.520, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 75, cups: 1.5, history: [4.2, 3.9, 3.7, 3.5, 3.45, 3.520] },
+  { name: "Alexandru Avirvarei", rating: 3.570, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 58, cups: 1, history: [4.05, 3.72, 3.64, 3.62, 3.55, 3.570] },
+  { name: "Zamfirescu Adrian", rating: 3.520, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 75, cups: 0, history: [4.2, 3.9, 3.7, 3.5, 3.45, 3.520] },
   { name: "Hora Catalin", rating: 3.325, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [0, 0, 3.48, 0, 3.42, 3.325] },
-  { name: "Borfina Marius", rating: 3.305, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 75, cups: 2.25, history: [0, 3.5, 3.25, 3.35, 3.35, 3.305] },
+  { name: "Borfina Marius", rating: 3.305, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 75, cups: 1, history: [0, 3.5, 3.25, 3.35, 3.35, 3.305] },
   { name: "Lazea Sorin", rating: 3.105, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [3.9, 3.38, 3.4, 0, 0, 3.105] },
-  { name: "Marius Calin", rating: 3.085, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, cups: 0.25, history: [0, 0, 3.3, 3.25, 3.2, 3.085] },
-  { name: "Nedisan Vlad", rating: 3.080, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 42, cups: 1.25, history: [0, 3.64, 3.35, 3.25, 3.22, 3.080] },
+  { name: "Marius Calin", rating: 3.085, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, cups: 0, history: [0, 0, 3.3, 3.25, 3.2, 3.085] },
+  { name: "Nedisan Vlad", rating: 3.080, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 100, winRate: 42, cups: 0, history: [0, 3.64, 3.35, 3.25, 3.22, 3.080] },
   { name: "Ovidiu Moldovan", rating: 3.050, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 100, cups: 2, history: [0, 0, 3.32, 3.15, 3.12, 3.050] },
-  { name: "Mihai Pop", rating: 3.040, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, cups: 1, history: [0, 0, 0, 3.25, 3.12, 3.040] },
+  { name: "Mihai Pop", rating: 3.040, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 67, winRate: 50, cups: 0, history: [0, 0, 0, 3.25, 3.12, 3.040] },
   { name: "Florin Dusa", rating: 3.010, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 0, cups: 0, history: [0, 3.65, 0, 3.3, 3.1, 3.010] },
-  { name: "Tudor Oprisor", rating: 2.805, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, cups: 0.25, history: [0, 0, 3.2, 3.1, 2.9, 2.805] },
+  { name: "Tudor Oprisor", rating: 2.805, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 33, winRate: 25, cups: 0, history: [0, 0, 3.2, 3.1, 2.9, 2.805] },
   { name: "Andrei Moldovan", rating: 2.765, pace: 80, sho: 80, pas: 80, dri: 80, def: 80, phy: 80, attendance: 0, winRate: 0, cups: 0, history: [3.8, 3.15, 3.1, 2.9, 2.85, 2.765] },
 ];
 
-export const players: Player[] = rawPlayers.map(p => {
-  return {
-    ...p,
-    ...getPlayerForm(p.name)
-  };
-});
+export const players: Player[] = rawPlayers
+  .map(p => {
+    return {
+      ...p,
+      ...getPlayerForm(p.name)
+    };
+  })
+  .sort((a, b) => (b.cups || 0) - (a.cups || 0));
 
 export const matches = [
   { date: "06.01", score: "0 - 0", winners: ["Silviu Bahrin", "Gabriel Marzan", "Ovidiu Moldovan", "Vasi Trif"], players: 15, playersList: ["Gabriel Marzan", "Burz Radu", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Marius Calin", "Nedisan Vlad", "Ovidiu Moldovan", "Tudor Oprisor", "Ionut Moldovan", "Vasi Trif"] },
@@ -63,26 +65,26 @@ export const matches = [
 
 export const trophies = [
   { name: "Silviu Bahrin", cups: 3, rate: "100%", successRate: "100%" },
-  { name: "Vlad Vidican", cups: 2.25, rate: "75%", successRate: "75%" },
-  { name: "Borfina Marius", cups: 2.25, rate: "75%", successRate: "75%" },
   { name: "Ovidiu Moldovan", cups: 2, rate: "100%", successRate: "100%" },
-  { name: "Alexandru Avirvarei", cups: 1.75, rate: "58%", successRate: "58%" },
-  { name: "Zamfirescu Adrian", cups: 1.5, rate: "75%", successRate: "75%" },
-  { name: "Cimpean Vali", cups: 1.5, rate: "75%", successRate: "75%" },
-  { name: "Nedisan Vlad", cups: 1.25, rate: "42%", successRate: "42%" },
   { name: "Gabriel Marzan", cups: 1, rate: "100%", successRate: "100%" },
+  { name: "Cimpean Vali", cups: 1, rate: "75%", successRate: "75%" },
+  { name: "Andries Adrian", cups: 1, rate: "100%", successRate: "100%" },
+  { name: "Alexandru Avirvarei", cups: 1, rate: "58%", successRate: "58%" },
+  { name: "Vlad Vidican", cups: 1, rate: "75%", successRate: "75%" },
+  { name: "Borfina Marius", cups: 1, rate: "75%", successRate: "75%" },
   { name: "Vasi Trif", cups: 1, rate: "100%", successRate: "100%" },
   { name: "Gabi Trofin", cups: 1, rate: "100%", successRate: "100%" },
-  { name: "Andries Adrian", cups: 1, rate: "100%", successRate: "100%" },
-  { name: "Paul Epure", cups: 1, rate: "50%", successRate: "50%" },
-  { name: "Termure Adrian", cups: 1, rate: "50%", successRate: "50%" },
-  { name: "Mihai Pop", cups: 1, rate: "50%", successRate: "50%" },
-  { name: "Dan Sandu", cups: 0.5, rate: "25%", successRate: "25%" },
-  { name: "Burz Radu", cups: 0.25, rate: "25%", successRate: "25%" },
-  { name: "Marius Calin", cups: 0.25, rate: "25%", successRate: "25%" },
-  { name: "Tudor Oprisor", cups: 0.25, rate: "25%", successRate: "25%" },
-  { name: "Ionut Moldovan", cups: 0.25, rate: "25%", successRate: "25%" },
-  { name: "Matei Hasmasan", cups: 0.25, rate: "13%", successRate: "13%" },
+  { name: "Termure Adrian", cups: 0, rate: "50%", successRate: "50%" },
+  { name: "Paul Epure", cups: 0, rate: "50%", successRate: "50%" },
+  { name: "Mihai Pop", cups: 0, rate: "50%", successRate: "50%" },
+  { name: "Dan Sandu", cups: 0, rate: "25%", successRate: "25%" },
+  { name: "Burz Radu", cups: 0, rate: "25%", successRate: "25%" },
+  { name: "Marius Calin", cups: 0, rate: "25%", successRate: "25%" },
+  { name: "Tudor Oprisor", cups: 0, rate: "25%", successRate: "25%" },
+  { name: "Ionut Moldovan", cups: 0, rate: "25%", successRate: "25%" },
+  { name: "Matei Hasmasan", cups: 0, rate: "13%", successRate: "13%" },
+  { name: "Zamfirescu Adrian", cups: 0, rate: "75%", successRate: "75%" },
+  { name: "Nedisan Vlad", cups: 0, rate: "42%", successRate: "42%" },
   { name: "Florin Dusa", cups: 0, rate: "0%", successRate: "0%" },
 ];
 
