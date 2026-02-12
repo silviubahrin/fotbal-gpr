@@ -9,10 +9,14 @@ const TrophyRoom = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(6);
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(2);
+      const mobile = window.innerWidth < 640;
+      setIsMobile(mobile);
+      if (mobile) {
+        setItemsPerView(6); // Show all 6 in the scrollable row
       } else if (window.innerWidth < 1024) {
         setItemsPerView(3);
       } else {
@@ -40,11 +44,12 @@ const TrophyRoom = () => {
 
   // Auto-play
   useEffect(() => {
+    if (isMobile) return;
     const timer = setInterval(() => {
       next();
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentIndex, maxIndex]);
+  }, [currentIndex, maxIndex, isMobile]);
 
   return (
     <section className="mt-8 mb-12">
@@ -54,7 +59,7 @@ const TrophyRoom = () => {
           Trophy Room
         </h2>
         <div className="h-px flex-1 mx-4 bg-white/5" />
-        <div className="flex gap-2">
+        <div className="hidden sm:flex gap-2">
           <button
             onClick={prev}
             className="h-8 w-8 rounded-md bg-white/[0.05] border border-white/10 flex items-center justify-center transition-all hover:bg-emerald-500/10 hover:border-emerald-500/50"
@@ -70,22 +75,22 @@ const TrophyRoom = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden px-1">
+      <div className="relative overflow-x-auto sm:overflow-hidden px-1 snap-x snap-mandatory scrollbar-hide pb-4 sm:pb-0">
         <motion.div
-          className="flex gap-3 sm:gap-4"
-          animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
+          className="flex gap-3 sm:gap-4 w-max sm:w-full"
+          animate={!isMobile ? { x: `-${currentIndex * (100 / itemsPerView)}%` } : {}}
           transition={{ type: "spring", stiffness: 300, damping: 40 }}
-          style={{ width: `${(totalItems / itemsPerView) * 100}%` }}
+          style={!isMobile ? { width: `${(totalItems / itemsPerView) * 100}%` } : {}}
         >
           {sortedTrophies.map((t, i) => (
             <div
               key={t.name}
-              style={{ width: `${100 / totalItems}%` }}
-              className={`group relative rounded-xl bg-white/[0.03] p-3 sm:p-4 border transition-all duration-300 ${
+              className={`group relative rounded-xl bg-white/[0.03] p-3 sm:p-4 border transition-all duration-300 snap-center min-w-[150px] sm:min-w-0 ${
                 i < 6 
                   ? "border-emerald-500/30 bg-emerald-500/[0.02] shadow-[0_0_20px_rgba(16,185,129,0.05)]" 
                   : "border-white/10 hover:border-emerald-500/20"
               }`}
+              style={!isMobile ? { width: `${100 / totalItems}%` } : {}}
             >
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
