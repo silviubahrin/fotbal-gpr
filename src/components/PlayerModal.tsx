@@ -47,11 +47,6 @@ export default function PlayerModal({ player, isOpen, onClose }: { player: Playe
 
   // Dynamic Titles Logic
   const getDynamicTitle = () => {
-    // 0. Cea mai bună formă din totdeauna (Peak streak in S6 - 3 wins)
-    if (player.streak === 3) {
-      return { text: "Cea mai bună formă din totdeauna", icon: <Star className="h-4 w-4 text-emerald-500" /> };
-    }
-
     // 1. Cel mai în formă (Highest current streak in league)
     const maxStreak = Math.max(...players.map(p => p.streak || 0));
     if (player.streak && player.streak === maxStreak && maxStreak > 0) {
