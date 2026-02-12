@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Calendar, Trophy } from "lucide-react";
+import { Star, Calendar, Trophy, Flame } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -88,9 +88,14 @@ export default function PlayerCard({
                 </div>
               )}
               {player.streak && player.streak >= 2 && (
-                <span className="text-[8px] font-black uppercase tracking-tighter text-emerald-400 bg-emerald-400/10 px-1 py-0.5 rounded border border-emerald-500/20">
-                  {player.streak}S
-                </span>
+                <div className="flex gap-0.5 items-center">
+                  {Array.from({ length: player.streak }).map((_, i) => (
+                    <Flame 
+                      key={i} 
+                      className="h-3 w-3 text-orange-500 fill-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.4)]" 
+                    />
+                  ))}
+                </div>
               )}
             </div>
           </div>
