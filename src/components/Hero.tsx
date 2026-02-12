@@ -9,7 +9,7 @@ export default function Hero() {
   const winners = lastMatch.winners;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-white/[0.03] p-6 text-white shadow-2xl border border-white/10 backdrop-blur-xl">
+    <div className="relative overflow-hidden rounded-2xl bg-white/[0.03] p-6 text-white border border-white/10 backdrop-blur-xl mb-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -22,20 +22,13 @@ export default function Hero() {
               <Trophy className="h-5 w-5 text-emerald-400" />
             </div>
             <div>
-              <h1 className="text-xl font-black tracking-tight text-white uppercase italic">
-                Câștigătorii Etapei
-              </h1>
-              <p className="text-emerald-400/80 font-mono text-[10px] font-bold uppercase tracking-[0.2em]">{lastMatch.date} • Match Day Winners</p>
+              <h1 className="text-xl font-black tracking-tight text-white uppercase italic leading-none">Câștigătorii Etapei</h1>
+              <p className="text-emerald-400/80 font-mono text-[10px] font-bold uppercase tracking-[0.2em] mt-1">{lastMatch.date} • Match Day Winners</p>
             </div>
-          </div>
-          <div className="hidden sm:block">
-            <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-400 uppercase tracking-widest">
-              Build v1.4.0
-            </span>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {winners.map((winner, index) => (
             <motion.div
               key={winner}
@@ -47,13 +40,11 @@ export default function Hero() {
               <div className="h-5 w-5 rounded bg-emerald-500 flex items-center justify-center text-[10px] font-black text-black group-hover:shadow-[0_0_12px_rgba(74,222,128,0.4)] transition-all">
                 {winner.split(' ').map(n => n[0]).join('')}
               </div>
-              <span className="text-sm font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight">{winner}</span>
+              <span className="text-sm font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight truncate">{winner}</span>
             </motion.div>
           ))}
         </div>
       </motion.div>
-      
-      {/* Subtle neon glow */}
       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-[100px] pointer-events-none" />
       <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-[100px] pointer-events-none" />
     </div>
