@@ -31,12 +31,12 @@ export default function Home() {
 
         <Hero />
 
-        {/* Layout Bottom: Player Rankings (Sorted by Cups) */}
+        {/* Layout Bottom: CLASAMENT (Sorted by Cups) */}
         <div className="mt-12">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-xl font-black italic tracking-tight uppercase">
               <Star className="text-emerald-400 h-5 w-5 fill-emerald-400/20" />
-              Player Rankings
+              CLASAMENT
             </h2>
             <div className="h-px flex-1 mx-4 bg-white/5" />
             <span className="font-mono text-[10px] font-bold text-neutral-500">
