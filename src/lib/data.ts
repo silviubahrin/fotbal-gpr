@@ -56,8 +56,8 @@ export const players: Player[] = rawPlayers.map(p => {
 });
 
 export const matches = [
-  { date: "06.01", score: "0 - 0", winners: ["TBD"], players: 15, playersList: ["Gabriel Marzan", "Burz Radu", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Marius Calin", "Nedisan Vlad", "Ovidiu Moldovan", "Tudor Oprisor", "Ionut Moldovan", "Vasi Trif"] },
-  { date: "20.01", score: "0 - 0", winners: ["TBD"], players: 14, playersList: ["Termure Adrian", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Cimpean Vali", "Dan Sandu", "Alexandru Avirvarei", "Borfina Marius", "Alexandru Avirvarei", "Andries Adrian", "Ovidiu Moldovan", "Florin Dusa", "Gabi Trofin"] },
+  { date: "06.01", score: "0 - 0", winners: ["Silviu Bahrin", "Gabriel Marzan", "Ovidiu Moldovan", "Vasi Trif"], players: 15, playersList: ["Gabriel Marzan", "Burz Radu", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Marius Calin", "Nedisan Vlad", "Ovidiu Moldovan", "Tudor Oprisor", "Ionut Moldovan", "Vasi Trif"] },
+  { date: "20.01", score: "0 - 0", winners: ["Silviu Bahrin", "Ovidiu Moldovan", "Gabi Trofin"], players: 14, playersList: ["Termure Adrian", "Silviu Bahrin", "Paul Epure", "Vlad Vidican", "Matei Hasmasan", "Cimpean Vali", "Dan Sandu", "Alexandru Avirvarei", "Borfina Marius", "Alexandru Avirvarei", "Andries Adrian", "Ovidiu Moldovan", "Florin Dusa", "Gabi Trofin"] },
   { date: "10.02", score: "0 - 0", winners: ["Silviu Bahrin", "Cimpean Vali", "Vlad Vidican", "Alexandru Avirvarei", "Andries Adrian", "Borfina Marius"], players: 11, playersList: ["Termure Adrian", "Silviu Bahrin", "Vlad Vidican", "Cimpean Vali", "Dan Sandu", "Andries Adrian", "Alexandru Avirvarei", "Zamfirescu Adrian", "Borfina Marius", "Alexandru Avirvarei", "Andries Adrian"] },
 ];
 

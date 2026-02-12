@@ -88,7 +88,7 @@ export default function PlayerCard({
         <div className="grid grid-cols-4 gap-6 sm:gap-8 border-t border-white/5 pt-3 sm:pt-0 sm:border-t-0">
           <StatItem
             label="RTG"
-            value={player.rating.toFixed(2)}
+            value={player.rating.toFixed(3)}
             icon={<Star className="h-2.5 w-2.5 text-emerald-400 fill-emerald-400/20" />}
           />
           <StatItem
