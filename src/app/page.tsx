@@ -11,9 +11,9 @@ export default function Home() {
   const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white">
+    <main className="min-h-screen bg-black text-white relative overflow-x-hidden"><div className="fixed inset-0 bg-gradient-to-b from-zinc-950 via-black to-zinc-950 pointer-events-none" /><div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" /><div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-emerald-600/5 blur-[120px] rounded-full pointer-events-none" /><div className="relative z-10">
       <div className="min-h-screen bg-[#050505] text-white">
-        BUILD v1.2.1 - DARK RESTORED
+        BUILD v1.3.0 - GRADIENT DEPTH
       </div>
       
       <div className="min-h-screen bg-[#050505] text-white">
@@ -93,6 +93,6 @@ export default function Home() {
         isOpen={!!selectedPlayer} 
         onClose={() => setSelectedPlayer(null)} 
       />
-    </main>
+    </div></main>
   );
 }
