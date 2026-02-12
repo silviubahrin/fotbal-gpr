@@ -71,12 +71,12 @@ export default function PlayerCard({
             </h3>
             <div className="flex items-center gap-2 mt-1.5">
               {player.form && player.form.length > 0 && (
-                <div className="flex gap-1 items-center">
-                  {player.form.slice(-3).map((res, i) => (
+                <div className="flex gap-1 items-center flex-wrap max-w-[120px] sm:max-w-none">
+                  {player.form.slice(-10).map((res, i) => (
                     <div
                       key={i}
                       className={cn(
-                        "h-1 w-1 rounded-full",
+                        "h-1 w-1 rounded-full shrink-0",
                         res === "W"
                           ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
                           : res === "D"

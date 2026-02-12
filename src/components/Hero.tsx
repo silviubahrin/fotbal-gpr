@@ -2,7 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Trophy } from "lucide-react";
-import { matches } from "@/lib/data";
+import { matches, players } from "@/lib/data";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export default function Hero() {
   const lastMatch = matches.find(m => m.date === "10.02") || matches[matches.length - 1];
@@ -29,20 +35,42 @@ export default function Hero() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-          {winners.map((winner, index) => (
-            <motion.div
-              key={winner}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group justify-start"
-            >
-              <div className="flex-shrink-0 h-5 w-5 rounded bg-emerald-500 flex items-center justify-center text-[10px] font-black text-black group-hover:shadow-[0_0_12px_rgba(74,222,128,0.4)] transition-all">
-                {winner.split(' ').map(n => n[0]).join('')}
-              </div>
-              <span className="text-[10px] sm:text-xs font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight truncate">{winner}</span>
-            </motion.div>
-          ))}
+          {winners.map((winner, index) => {
+            const player = players.find(p => p.name === winner);
+            return (
+              <motion.div
+                key={winner}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group justify-start"
+              >
+                <div className="flex-shrink-0 h-5 w-5 rounded bg-emerald-500 flex items-center justify-center text-[10px] font-black text-black group-hover:shadow-[0_0_12px_rgba(74,222,128,0.4)] transition-all">
+                  {winner.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[10px] sm:text-xs font-bold text-neutral-300 group-hover:text-white transition-colors tracking-tight truncate">{winner}</span>
+                  {player?.form && player.form.length > 0 && (
+                    <div className="flex gap-1 items-center mt-0.5">
+                      {player.form.slice(-3).map((res, i) => (
+                        <div
+                          key={i}
+                          className={cn(
+                            "h-1 w-1 rounded-full shrink-0",
+                            res === "W"
+                              ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
+                              : res === "D"
+                              ? "bg-neutral-600"
+                              : "bg-rose-500/80"
+                          )}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-500/[0.03] blur-[100px] pointer-events-none" />

@@ -57,7 +57,7 @@ export function getPlayerForm(playerName: string) {
   }
 
   return {
-    form: form.slice(-5), // Last 5 matches
+    form, // Return full history
     streak
   };
 }
